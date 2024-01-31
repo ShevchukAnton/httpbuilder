@@ -3,7 +3,6 @@
  */
 
 plugins {
-    id 'groovy'
     id 'java-library'
     id 'maven-publish'
 }
@@ -30,17 +29,9 @@ dependencies {
 }
 
 group = 'org.codehaus.groovy.modules.http-builder'
-version = '0.7.5'
+version = '0.7.6'
 description = 'HTTP client framework for Groovy'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
-}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -48,6 +39,24 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Javadoc) {
     options.encoding = 'UTF-8'
+}
+
+publishing {
+    publications {
+        library(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            String publishRepoName = ''
+            url = layout.buildDirectory.dir(publishRepoName)
+        }
+    }
+}
+
+java {
+    withSourcesJar()
 }
 
 test {
