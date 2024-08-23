@@ -2,10 +2,20 @@ HTTPBuilder = Easy HTTP client for Groovy.
 
 Build Instructions:
 
- HTTPBuilder is built using Apache Maven (http://maven.apache.org)
- $ mvn install
+### HTTPBuilder is built using Apache Gradle
 
-Documentation: https://github.com/jgritman/httpbuilder/wiki
+To build project:
+ `./gradlew clean build`
+
+To publish locally (so transitive dependencies will work):
+
+`./gradlew publishToMavenLocal`
+
+Or publish globally, just specify correct repository in *build.gradle* before
+
+`./gradlew publish`
+
+### Documentation of initial project: https://github.com/jgritman/httpbuilder/wiki
 
 Contributions:
 
@@ -15,11 +25,6 @@ Contributions:
   * Json-Lib: http://json-lib.sourceforge.net/
   * Neko HTML: http://nekohtml.sourceforge.net/
   * Signpost: http://code.google.com/p/oauth-signpost/
-
- This project also includes source code written by Martin Blom (martin@blom.org)
- in the 'thirdparty' package.  It is licensed under the LGPL v3 and
- re-distributed with permission from the author.
-
 
 License:
 
@@ -32,6 +37,6 @@ License:
  effort from other individuals and corporations.  As a responsible member
  of the community, you are encouraged (but not required) to donate any
  enhancements or improvements back to the community under a similar open
- source license.  Thank you. -TMN
+ source license.
 
 
